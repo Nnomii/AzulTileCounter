@@ -1,46 +1,28 @@
 package com.example.azultilecounter
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.azultilecounter.ui.theme.AzulTileCounterTheme
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            AzulTileCounterTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+        setContentView(R.layout.activity_main)
+
+        // Reference the square image buttons
+        val buttonBlue: Button = findViewById(R.id.button_blue)
+        val buttonYellow: Button = findViewById(R.id.button_yellow)
+        val buttonRed: Button = findViewById(R.id.button_red)
+        val buttonBlack: Button = findViewById(R.id.button_black)
+        val buttonWhite: Button = findViewById(R.id.button_white)
+
+
+        // Reference and set onClick for the Confirm button
+        val confirmButton: Button = findViewById(R.id.confirm_button)
+        confirmButton.setOnClickListener {
+            // Handle confirm button click
+            println("confirm_pressed")
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AzulTileCounterTheme {
-        Greeting("Android")
     }
 }
